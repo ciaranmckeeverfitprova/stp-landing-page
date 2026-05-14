@@ -1,0 +1,1144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Small Town Project — Your Town. Your Training. Your People.</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Lora:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --green:        #1E6B3C;
+  --green-mid:    #2D9655;
+  --green-light:  #6FCF97;
+  --green-pale:   #D4EDDF;
+  --purple:       #4B2D7F;
+  --purple-mid:   #6B45AD;
+  --purple-light: #A78BDA;
+  --purple-pale:  #EDE7F6;
+  --dark:         #111210;
+  --dark2:        #1A1D1B;
+  --mid:          #2C302D;
+  --muted:        #6B7068;
+  --cream:        #F5F1EB;
+  --white:        #FFFFFF;
+  --radius:       5px;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--dark);
+  color: var(--white);
+  font-size: 17px;
+  line-height: 1.65;
+  overflow-x: hidden;
+}
+
+/* ── NAV ── */
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 200;
+  padding: 0 40px;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: rgba(17,18,16,0.9);
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+.nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.nav-logo-mark {
+  width: 32px;
+  height: 32px;
+}
+.nav-wordmark {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 19px;
+  letter-spacing: 0.14em;
+  color: var(--white);
+  line-height: 1;
+}
+.nav-wordmark span { color: var(--green-light); }
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+.nav-links a {
+  font-size: 13px;
+  font-weight: 400;
+  color: rgba(255,255,255,0.55);
+  text-decoration: none;
+  letter-spacing: 0.03em;
+  transition: color 0.2s;
+}
+.nav-links a:hover { color: var(--white); }
+.nav-cta {
+  background: var(--green);
+  color: var(--white) !important;
+  font-size: 13px !important;
+  font-weight: 500 !important;
+  padding: 9px 22px;
+  border-radius: var(--radius);
+  letter-spacing: 0.04em !important;
+  transition: background 0.2s !important;
+}
+.nav-cta:hover { background: var(--green-mid) !important; color: var(--white) !important; }
+
+/* ── HERO ── */
+.hero {
+  min-height: 100vh;
+  padding: 120px 40px 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 75% 65% at 50% -10%, rgba(75,45,127,0.55) 0%, transparent 65%),
+    radial-gradient(ellipse 55% 45% at 15% 80%, rgba(30,107,60,0.3) 0%, transparent 60%),
+    var(--dark);
+  z-index: 0;
+}
+.hero-texture {
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='1' cy='1' r='1' fill='rgba(255,255,255,0.025)'/%3E%3C/svg%3E");
+  z-index: 0;
+}
+.hero-content {
+  position: relative;
+  z-index: 1;
+  max-width: 860px;
+  text-align: center;
+}
+
+.pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--green-light);
+  background: rgba(30,107,60,0.18);
+  border: 1px solid rgba(111,207,151,0.22);
+  padding: 7px 18px;
+  border-radius: 100px;
+  margin-bottom: 36px;
+}
+.pill-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--green-light);
+  animation: pulse 2s ease-in-out infinite;
+}
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(0.7); }
+}
+
+h1 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(68px, 13vw, 130px);
+  line-height: 0.92;
+  letter-spacing: 0.03em;
+  color: var(--white);
+  margin-bottom: 8px;
+}
+h1 .accent { color: var(--green-light); }
+h1 .accent-purple { color: var(--purple-light); }
+
+.hero-tagline {
+  font-family: 'Lora', serif;
+  font-style: italic;
+  font-size: clamp(16px, 2.2vw, 20px);
+  color: rgba(255,255,255,0.55);
+  margin-bottom: 36px;
+  letter-spacing: 0.01em;
+}
+
+.hero-body {
+  font-size: clamp(16px, 1.8vw, 18px);
+  font-weight: 300;
+  color: rgba(255,255,255,0.7);
+  max-width: 580px;
+  margin: 0 auto 48px;
+  line-height: 1.75;
+}
+
+.cta-group {
+  display: flex;
+  gap: 14px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 72px;
+}
+
+.btn-primary {
+  background: var(--green);
+  color: var(--white);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  padding: 17px 40px;
+  border-radius: var(--radius);
+  text-decoration: none;
+  letter-spacing: 0.02em;
+  transition: background 0.2s, transform 0.15s;
+  display: inline-block;
+}
+.btn-primary:hover { background: var(--green-mid); transform: translateY(-2px); }
+
+.btn-ghost {
+  background: transparent;
+  color: rgba(255,255,255,0.7);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 15px;
+  font-weight: 400;
+  padding: 17px 34px;
+  border-radius: var(--radius);
+  text-decoration: none;
+  border: 1px solid rgba(255,255,255,0.16);
+  transition: border-color 0.2s, color 0.2s;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+.btn-ghost:hover { border-color: rgba(255,255,255,0.4); color: var(--white); }
+.play-icon {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.stats-bar {
+  display: flex;
+  gap: 0;
+  justify-content: center;
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 10px;
+  overflow: hidden;
+  max-width: 620px;
+  margin: 0 auto;
+  background: rgba(255,255,255,0.03);
+}
+.stat-item {
+  flex: 1;
+  padding: 20px 16px;
+  text-align: center;
+  border-right: 1px solid rgba(255,255,255,0.08);
+}
+.stat-item:last-child { border-right: none; }
+.stat-num {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 34px;
+  letter-spacing: 0.06em;
+  line-height: 1;
+  color: var(--green-light);
+  display: block;
+  margin-bottom: 4px;
+}
+.stat-label {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: rgba(255,255,255,0.38);
+}
+
+/* ── SECTION SHARED ── */
+section { padding: 100px 40px; }
+.inner { max-width: 960px; margin: 0 auto; }
+.inner-narrow { max-width: 760px; margin: 0 auto; }
+
+.section-label {
+  display: block;
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--green-light);
+  margin-bottom: 16px;
+}
+.section-label-purple {
+  color: var(--purple-light);
+}
+
+h2 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(42px, 7vw, 72px);
+  letter-spacing: 0.04em;
+  line-height: 0.95;
+  color: var(--white);
+  margin-bottom: 20px;
+}
+h2 .accent { color: var(--green-light); }
+h2 .accent-purple { color: var(--purple-light); }
+
+.section-intro {
+  font-size: 17px;
+  font-weight: 300;
+  color: rgba(255,255,255,0.6);
+  line-height: 1.75;
+  max-width: 580px;
+  margin-bottom: 56px;
+}
+
+/* ── VIDEO ── */
+.video-section { background: var(--dark2); }
+.video-wrapper {
+  border-radius: 12px;
+  overflow: hidden;
+  background: var(--mid);
+  aspect-ratio: 16 / 9;
+  border: 1px solid rgba(255,255,255,0.07);
+  position: relative;
+  cursor: pointer;
+}
+.video-thumb-bg {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, #1A2E20 0%, #0F1A12 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+}
+.video-play-btn {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: var(--green);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s, background 0.2s;
+  box-shadow: 0 0 0 12px rgba(30,107,60,0.2), 0 0 0 24px rgba(30,107,60,0.08);
+}
+.video-play-btn:hover { transform: scale(1.08); background: var(--green-mid); }
+.video-hint {
+  font-size: 13px;
+  color: rgba(255,255,255,0.35);
+  letter-spacing: 0.04em;
+}
+.video-embed {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+  display: none;
+}
+
+/* ── HOW IT WORKS ── */
+.steps-section {
+  background: linear-gradient(180deg, var(--dark) 0%, var(--dark2) 100%);
+}
+.steps-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: rgba(255,255,255,0.07);
+  border-radius: 12px;
+  overflow: hidden;
+  margin-top: 52px;
+}
+.step-card {
+  background: var(--dark2);
+  padding: 44px 36px;
+  position: relative;
+}
+.step-num {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 80px;
+  line-height: 0.9;
+  color: rgba(75,45,127,0.3);
+  margin-bottom: 20px;
+  display: block;
+}
+.step-title {
+  font-size: 19px;
+  font-weight: 500;
+  color: var(--white);
+  margin-bottom: 10px;
+}
+.step-body {
+  font-size: 14px;
+  font-weight: 300;
+  color: rgba(255,255,255,0.5);
+  line-height: 1.7;
+}
+.step-card::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--purple);
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+.step-card:hover::after { opacity: 1; }
+
+/* ── WHAT'S INCLUDED ── */
+.includes-section { background: var(--dark2); }
+.includes-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 14px;
+  margin-top: 52px;
+}
+.include-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 22px 20px;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 8px;
+  transition: border-color 0.2s, background 0.2s;
+}
+.include-card:hover {
+  background: rgba(30,107,60,0.07);
+  border-color: rgba(111,207,151,0.18);
+}
+.include-tick {
+  width: 22px;
+  height: 22px;
+  min-width: 22px;
+  border-radius: 50%;
+  background: rgba(30,107,60,0.25);
+  border: 1px solid rgba(111,207,151,0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 1px;
+}
+.include-text {
+  font-size: 14px;
+  font-weight: 400;
+  color: rgba(255,255,255,0.72);
+  line-height: 1.55;
+}
+
+/* ── NOT FOR ── */
+.not-for-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1px;
+  background: rgba(255,255,255,0.06);
+  border-radius: 12px;
+  overflow: hidden;
+  margin-top: 52px;
+}
+.not-for-col {
+  background: var(--dark2);
+  padding: 40px 36px;
+}
+.not-for-col-title {
+  font-size: 12px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  margin-bottom: 24px;
+  display: block;
+}
+.col-for .not-for-col-title { color: var(--green-light); }
+.col-not .not-for-col-title { color: rgba(255,255,255,0.3); }
+.list-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 14px;
+  font-size: 14px;
+  line-height: 1.55;
+}
+.col-for .list-item { color: rgba(255,255,255,0.75); }
+.col-not .list-item { color: rgba(255,255,255,0.32); }
+.list-dot-green {
+  width: 6px;
+  height: 6px;
+  min-width: 6px;
+  border-radius: 50%;
+  background: var(--green-light);
+  margin-top: 7px;
+}
+.list-dot-grey {
+  width: 6px;
+  height: 6px;
+  min-width: 6px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.18);
+  margin-top: 7px;
+}
+
+/* ── TESTIMONIALS ── */
+.testi-section { background: var(--dark); }
+.testi-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 18px;
+  margin-top: 52px;
+}
+.testi-card {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: 10px;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 20px;
+  transition: border-color 0.25s;
+}
+.testi-card:hover { border-color: rgba(75,45,127,0.35); }
+.testi-stars {
+  display: flex;
+  gap: 3px;
+  margin-bottom: 14px;
+}
+.star {
+  width: 13px;
+  height: 13px;
+  background: var(--green-light);
+  clip-path: polygon(50% 0%,61% 35%,98% 35%,68% 57%,79% 91%,50% 70%,21% 91%,32% 57%,2% 35%,39% 35%);
+}
+.testi-quote {
+  font-family: 'Lora', serif;
+  font-style: italic;
+  font-size: 15px;
+  color: rgba(255,255,255,0.78);
+  line-height: 1.75;
+  border-left: 2px solid var(--purple-mid);
+  padding-left: 16px;
+  flex: 1;
+}
+.testi-footer {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.testi-avatar {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: rgba(75,45,127,0.35);
+  border: 1px solid rgba(167,139,218,0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--purple-light);
+  flex-shrink: 0;
+}
+.testi-name {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--white);
+}
+.testi-location {
+  font-size: 12px;
+  color: rgba(255,255,255,0.35);
+  margin-top: 1px;
+}
+
+.testi-feature {
+  grid-column: 1 / -1;
+  background: rgba(75,45,127,0.12);
+  border-color: rgba(167,139,218,0.2);
+}
+.testi-feature .testi-quote {
+  font-size: 17px;
+  border-left-color: var(--purple-mid);
+}
+
+/* ── ORIGIN ── */
+.origin-section {
+  background: var(--dark2);
+}
+.origin-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+.origin-text h2 { margin-bottom: 24px; }
+.origin-body {
+  font-size: 16px;
+  font-weight: 300;
+  color: rgba(255,255,255,0.62);
+  line-height: 1.8;
+  margin-bottom: 20px;
+}
+.origin-visual {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.origin-card {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: 8px;
+  padding: 22px 20px;
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+}
+.origin-icon {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 28px;
+  color: var(--purple-light);
+  line-height: 1;
+  min-width: 40px;
+  letter-spacing: 0.04em;
+}
+.origin-card-text { font-size: 14px; color: rgba(255,255,255,0.62); line-height: 1.65; }
+.origin-card-title { font-weight: 500; color: var(--white); font-size: 14px; margin-bottom: 4px; }
+
+/* ── JOIN ── */
+.join-section {
+  text-align: center;
+  background: radial-gradient(ellipse 80% 70% at 50% 110%, rgba(75,45,127,0.35) 0%, transparent 65%), var(--dark);
+  padding: 120px 40px;
+}
+.join-eyebrow {
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--purple-light);
+  display: block;
+  margin-bottom: 20px;
+}
+.join-heading {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(50px, 9vw, 96px);
+  letter-spacing: 0.04em;
+  line-height: 0.92;
+  margin-bottom: 20px;
+}
+.join-heading .accent { color: var(--green-light); }
+.join-sub {
+  font-size: 17px;
+  font-weight: 300;
+  color: rgba(255,255,255,0.58);
+  max-width: 500px;
+  margin: 0 auto 52px;
+  line-height: 1.7;
+}
+
+.price-card {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(167,139,218,0.22);
+  border-radius: 14px;
+  padding: 44px 56px;
+  margin-bottom: 36px;
+  gap: 6px;
+  position: relative;
+}
+.price-card::before {
+  content: 'Most Popular';
+  position: absolute;
+  top: -13px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  background: var(--purple);
+  color: var(--purple-pale);
+  padding: 4px 18px;
+  border-radius: 100px;
+}
+.price-label-top {
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.38);
+}
+.price-num {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 88px;
+  line-height: 1;
+  letter-spacing: 0.03em;
+  color: var(--white);
+}
+.price-suffix {
+  font-size: 14px;
+  color: rgba(255,255,255,0.4);
+  margin-bottom: 24px;
+}
+.price-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+  text-align: left;
+  border-top: 1px solid rgba(255,255,255,0.07);
+  padding-top: 24px;
+  margin-top: 8px;
+}
+.price-list-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 14px;
+  color: rgba(255,255,255,0.68);
+}
+.price-list-item::before {
+  content: '';
+  width: 16px;
+  height: 16px;
+  min-width: 16px;
+  border-radius: 50%;
+  background: rgba(30,107,60,0.3);
+  border: 1px solid rgba(111,207,151,0.35);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M2 6l3 3 5-5' stroke='%236FCF97' stroke-width='1.5' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 9px;
+}
+
+.join-btn {
+  background: var(--green);
+  color: var(--white);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 18px;
+  font-weight: 500;
+  padding: 21px 60px;
+  border-radius: var(--radius);
+  text-decoration: none;
+  letter-spacing: 0.02em;
+  display: inline-block;
+  transition: background 0.2s, transform 0.15s;
+}
+.join-btn:hover { background: var(--green-mid); transform: translateY(-2px); }
+
+.join-microcopy {
+  display: block;
+  font-size: 13px;
+  color: rgba(255,255,255,0.28);
+  margin-top: 14px;
+}
+
+/* ── FOOTER ── */
+footer {
+  background: var(--dark2);
+  border-top: 1px solid rgba(255,255,255,0.06);
+  padding: 44px 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+.footer-brand {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 18px;
+  letter-spacing: 0.12em;
+  color: rgba(255,255,255,0.35);
+}
+.footer-tagline {
+  font-size: 12px;
+  color: rgba(255,255,255,0.22);
+  font-style: italic;
+  font-family: 'Lora', serif;
+  letter-spacing: 0.02em;
+}
+.footer-links {
+  display: flex;
+  gap: 24px;
+}
+.footer-links a {
+  font-size: 12px;
+  color: rgba(255,255,255,0.28);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.footer-links a:hover { color: rgba(255,255,255,0.6); }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 768px) {
+  section { padding: 70px 24px; }
+  nav { padding: 0 24px; }
+  .hero { padding: 100px 24px 64px; }
+  .nav-links a:not(.nav-cta) { display: none; }
+  .steps-grid { grid-template-columns: 1fr; }
+  .not-for-grid { grid-template-columns: 1fr; }
+  .origin-inner { grid-template-columns: 1fr; gap: 44px; }
+  .price-card { padding: 36px 28px; }
+  footer { flex-direction: column; align-items: flex-start; }
+}
+@media (max-width: 480px) {
+  h1 { font-size: 64px; }
+  .stats-bar { flex-direction: column; }
+  .stat-item { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.08); }
+  .stat-item:last-child { border-bottom: none; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">
+    <svg class="nav-logo-mark" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M16 4L4 13v15h8v-9h8v9h8V13L16 4z" fill="none" stroke="#6FCF97" stroke-width="1.8" stroke-linejoin="round"/>
+      <circle cx="16" cy="11" r="2" fill="#A78BDA"/>
+    </svg>
+    <span class="nav-wordmark">The Small Town <span>Project</span></span>
+  </div>
+  <div class="nav-links">
+    <a href="#video">Our Story</a>
+    <a href="#how-it-works">How It Works</a>
+    <a href="#testimonials">Members</a>
+    <a href="#join" class="nav-cta">Join Now</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="top">
+  <div class="hero-bg"></div>
+  <div class="hero-texture"></div>
+  <div class="hero-content">
+    <span class="pill"><span class="pill-dot"></span>Rural Ireland's Fitness Movement</span>
+    <h1>Your Town.<br><span class="accent">Your People.</span><br>Your Change.</h1>
+    <p class="hero-tagline">Consistency &nbsp;·&nbsp; Community &nbsp;·&nbsp; Confidence</p>
+    <p class="hero-body">Structured fitness and real community for women in rural Ireland. No commute, no intimidation, no going it alone. Just a coach who knows your name and people who show up with you.</p>
+    <div class="cta-group">
+      <a href="#join" class="btn-primary">Join The Project</a>
+      <a href="#video" class="btn-ghost">
+        <span class="play-icon">
+          <svg width="8" height="10" viewBox="0 0 8 10" fill="none"><path d="M1 1l6 4-6 4V1z" fill="white"/></svg>
+        </span>
+        Watch Jack's Story
+      </a>
+    </div>
+    <div class="stats-bar">
+      <div class="stat-item">
+        <span class="stat-num">120+</span>
+        <span class="stat-label">Active Members</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-num">17</span>
+        <span class="stat-label">Classes Per Week</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-num">3</span>
+        <span class="stat-label">Steps to Join</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-num">6</span>
+        <span class="stat-label">Coaches</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VIDEO -->
+<section class="video-section" id="video">
+  <div class="inner">
+    <span class="section-label">Straight from Jack</span>
+    <h2>What The STP<br><span class="accent">Is Really About</span></h2>
+    <p class="section-intro">Watch Jack explain exactly what happens inside The Small Town Project, why it started, and why it's unlike anything else in rural Ireland.</p>
+    <div class="video-wrapper" id="videoWrapper">
+      <div class="video-thumb-bg" id="videoThumb">
+        <div class="video-play-btn" onclick="playVideo()">
+          <svg width="28" height="28" viewBox="0 0 28 28" fill="none"><path d="M9 6l14 8-14 8V6z" fill="white"/></svg>
+        </div>
+        <span class="video-hint">Click to watch — your intro video goes here</span>
+      </div>
+      <!-- REPLACE src BELOW WITH YOUR YOUTUBE EMBED URL -->
+      <!-- e.g. https://www.youtube.com/embed/YOUR_VIDEO_ID?autoplay=1 -->
+      <iframe class="video-embed" id="videoEmbed" allow="autoplay; fullscreen" allowfullscreen></iframe>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="steps-section" id="how-it-works">
+  <div class="inner">
+    <span class="section-label section-label-purple">Simple by design</span>
+    <h2>Three Steps.<br><span class="accent-purple">You're In.</span></h2>
+    <p class="section-intro">Joining shouldn't feel like a second job. We stripped it back to the essentials so you can get started and get going.</p>
+    <div class="steps-grid">
+      <div class="step-card">
+        <span class="step-num">01</span>
+        <div class="step-title">Pay and join</div>
+        <p class="step-body">Click the Join Now button, pick your membership, and pay securely in one step. No account to create, no app to download.</p>
+      </div>
+      <div class="step-card">
+        <span class="step-num">02</span>
+        <div class="step-title">Tell us about you</div>
+        <p class="step-body">A short onboarding form tells the team about your goals and where you're starting from. It takes three minutes, not thirty.</p>
+      </div>
+      <div class="step-card">
+        <span class="step-num">03</span>
+        <div class="step-title">Join the community</div>
+        <p class="step-body">You're in. Access the group, meet the coaches, and come to your first class. That's it. Welcome to The Small Town Project.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT'S INCLUDED -->
+<section class="includes-section">
+  <div class="inner">
+    <span class="section-label">What you get</span>
+    <h2>Everything Included.<br><span class="accent">Nothing Held Back.</span></h2>
+    <p class="section-intro">This isn't a generic app. You get a coach who knows your name, a community that actually shows up for you, and a structure built around real life.</p>
+    <div class="includes-grid">
+      <div class="include-card">
+        <div class="include-tick"><svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#6FCF97" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <span class="include-text">Structured weekly training plans built around your life, not against it</span>
+      </div>
+      <div class="include-card">
+        <div class="include-tick"><svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#6FCF97" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <span class="include-text">Professional-standard classes in your own town. No travel, no anonymity</span>
+      </div>
+      <div class="include-card">
+        <div class="include-tick"><svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#6FCF97" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <span class="include-text">Private community group for support, accountability, and the kind of banter you can't get from an app</span>
+      </div>
+      <div class="include-card">
+        <div class="include-tick"><svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#6FCF97" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <span class="include-text">Direct access to Jack and the full coaching team, not a chatbot</span>
+      </div>
+      <div class="include-card">
+        <div class="include-tick"><svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#6FCF97" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <span class="include-text">Nutrition guidance tailored to your goals, no meal plans or food rules</span>
+      </div>
+      <div class="include-card">
+        <div class="include-tick"><svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#6FCF97" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <span class="include-text">Regular check-ins, events, and outings. People who become real friends</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- IS IT FOR ME -->
+<section style="background: var(--dark);">
+  <div class="inner">
+    <span class="section-label">Honest about what we are</span>
+    <h2>Built For <span class="accent">Real Life.</span><br>Not a Quick Fix.</h2>
+    <p class="section-intro">We're not for everyone and we're proud of that. Here's who STP is for and what we're not.</p>
+    <div class="not-for-grid">
+      <div class="not-for-col col-for">
+        <span class="not-for-col-title">STP is for you if</span>
+        <div class="list-item"><div class="list-dot-green"></div><span>You want structure and support, not just a gym membership</span></div>
+        <div class="list-item"><div class="list-dot-green"></div><span>You've tried before and need an environment that keeps you going</span></div>
+        <div class="list-item"><div class="list-dot-green"></div><span>You want to feel confident and capable, not just look a certain way</span></div>
+        <div class="list-item"><div class="list-dot-green"></div><span>You're in rural Ireland and tired of having no real options nearby</span></div>
+        <div class="list-item"><div class="list-dot-green"></div><span>You want to belong to something, not just attend something</span></div>
+        <div class="list-item"><div class="list-dot-green"></div><span>You're a complete beginner. All fitness levels are met exactly where they are</span></div>
+      </div>
+      <div class="not-for-col col-not">
+        <span class="not-for-col-title">STP isn't for you if</span>
+        <div class="list-item"><div class="list-dot-grey"></div><span>You want a quick-fix transformation challenge</span></div>
+        <div class="list-item"><div class="list-dot-grey"></div><span>You're looking for strict meal plans or calorie tracking</span></div>
+        <div class="list-item"><div class="list-dot-grey"></div><span>You want hustle culture, "no excuses" energy, and grind mentality</span></div>
+        <div class="list-item"><div class="list-dot-grey"></div><span>You want a faceless self-service gym to disappear into alone</span></div>
+        <div class="list-item"><div class="list-dot-grey"></div><span>Before and after photos are your main motivation</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ORIGIN STORY -->
+<section class="origin-section" id="about">
+  <div class="inner">
+    <div class="origin-inner">
+      <div class="origin-text">
+        <span class="section-label section-label-purple">Where it started</span>
+        <h2>Started In<br><span class="accent-purple">New York.</span><br>Brought Home.</h2>
+        <p class="origin-body">In the summer of 2023, Jack set up a fitness class at an outdoor running track in New York for a group of Irish-American mothers. No gym. No equipment. Just structure, community, and showing up together.</p>
+        <p class="origin-body">The feedback wasn't about how people looked. It was about energy, mental health, confidence, and feeling like themselves again.</p>
+        <p class="origin-body">Coming home to rural Ireland, the question was simple: why can't people here have the same?</p>
+      </div>
+      <div class="origin-visual">
+        <div class="origin-card">
+          <span class="origin-icon">CO</span>
+          <div>
+            <div class="origin-card-title">Community First</div>
+            <div class="origin-card-text">Members don't just train together. They go on walks, weekends away, and show up for each other outside of classes too.</div>
+          </div>
+        </div>
+        <div class="origin-card">
+          <span class="origin-icon">RU</span>
+          <div>
+            <div class="origin-card-title">Rural by Design</div>
+            <div class="origin-card-text">Not adapted from a city gym model. Built from the ground up for how rural communities actually live, travel, and think.</div>
+          </div>
+        </div>
+        <div class="origin-card">
+          <span class="origin-icon">GO</span>
+          <div>
+            <div class="origin-card-title">Gold Standard</div>
+            <div class="origin-card-text">Professional coaching in your town. Not a workaround. Not a compromise. A premium product in a small town.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testi-section" id="testimonials">
+  <div class="inner">
+    <span class="section-label">Real people, real results</span>
+    <h2>What Members<br><span class="accent">Actually Say.</span></h2>
+    <p class="section-intro">Not before and after photos. Not transformation stats. Just honest words from women who showed up and stuck with it.</p>
+    <div class="testi-grid">
+
+      <!-- FEATURE QUOTE — replace with a real member quote -->
+      <div class="testi-card testi-feature">
+        <div>
+          <div class="testi-stars"><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div></div>
+          <p class="testi-quote">"I've tried every gym and every programme going. The STP is the first thing that actually stuck, because there are real people around you who know your name and notice when you're not there. I didn't just get fitter. I got my confidence back."</p>
+        </div>
+        <div class="testi-footer">
+          <div class="testi-avatar">SM</div>
+          <div>
+            <div class="testi-name">Sarah M.</div>
+            <div class="testi-location">Member since 2024 · Co. Roscommon</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="testi-card">
+        <div>
+          <div class="testi-stars"><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div></div>
+          <p class="testi-quote">"I walked in thinking I wasn't fit enough to be there. Within two weeks I realised that was never the point. You're met exactly where you are."</p>
+        </div>
+        <div class="testi-footer">
+          <div class="testi-avatar">AK</div>
+          <div>
+            <div class="testi-name">Aoife K.</div>
+            <div class="testi-location">Member · East Galway</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="testi-card">
+        <div>
+          <div class="testi-stars"><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div></div>
+          <p class="testi-quote">"I genuinely look forward to classes every week. That's never happened before with exercise. The community is what keeps you coming back."</p>
+        </div>
+        <div class="testi-footer">
+          <div class="testi-avatar">CR</div>
+          <div>
+            <div class="testi-name">Claire R.</div>
+            <div class="testi-location">Member · Co. Galway</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="testi-card">
+        <div>
+          <div class="testi-stars"><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div></div>
+          <p class="testi-quote">"I was the most unfit person in the room on day one. The coaches made me feel capable before I believed it myself. Twelve weeks in and I wouldn't swap it for anything."</p>
+        </div>
+        <div class="testi-footer">
+          <div class="testi-avatar">MP</div>
+          <div>
+            <div class="testi-name">Mary P.</div>
+            <div class="testi-location">Member · Co. Roscommon</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- JOIN -->
+<section class="join-section" id="join">
+  <div class="inner-narrow">
+    <span class="join-eyebrow">Ready when you are</span>
+    <h2 class="join-heading">Show Up.<br><span class="accent">Belong.</span><br>Become.</h2>
+    <p class="join-sub">You don't need to be fit to start. You just need to show up. We take it from there.</p>
+
+    <div class="price-card">
+      <span class="price-label-top">Monthly Membership</span>
+      <span class="price-num">€127</span>
+      <span class="price-suffix">per month · cancel any time</span>
+      <div class="price-list">
+        <div class="price-list-item">All classes in your local area</div>
+        <div class="price-list-item">Full access to the coaching team</div>
+        <div class="price-list-item">Private community group</div>
+        <div class="price-list-item">Nutrition support included</div>
+        <div class="price-list-item">Events, outings, and community experiences</div>
+      </div>
+    </div>
+
+    <br>
+    <!-- REPLACE href WITH YOUR CHECKOUT PAGE URL -->
+    <a href="#checkout" class="join-btn">Join The Small Town Project</a>
+    <span class="join-microcopy">Secure payment · 3-step setup · no Wunderbook needed</span>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div>
+    <div class="footer-brand">THE SMALL TOWN PROJECT</div>
+    <div class="footer-tagline">Bringing Fitness &amp; Real Community to Rural Ireland</div>
+  </div>
+  <div class="footer-links">
+    <a href="#">Privacy Policy</a>
+    <a href="#">Terms</a>
+    <a href="mailto:hello@thesmalltownproject.ie">Contact</a>
+  </div>
+</footer>
+
+<script>
+function playVideo() {
+  var thumb = document.getElementById('videoThumb');
+  var embed = document.getElementById('videoEmbed');
+  // TO ACTIVATE: replace the src below with your YouTube embed URL
+  // embed.src = 'https://www.youtube.com/embed/YOUR_VIDEO_ID?autoplay=1';
+  thumb.style.display = 'none';
+  embed.style.display = 'block';
+}
+
+// Smooth nav highlight on scroll
+var sections = document.querySelectorAll('section[id]');
+var navLinks = document.querySelectorAll('.nav-links a:not(.nav-cta)');
+window.addEventListener('scroll', function() {
+  var scrollPos = window.scrollY + 100;
+  sections.forEach(function(s) {
+    if (s.offsetTop <= scrollPos && s.offsetTop + s.offsetHeight > scrollPos) {
+      navLinks.forEach(function(l) { l.style.color = ''; });
+      var active = document.querySelector('.nav-links a[href="#' + s.id + '"]');
+      if (active) active.style.color = 'rgba(255,255,255,0.9)';
+    }
+  });
+});
+</script>
+</body>
+</html>
